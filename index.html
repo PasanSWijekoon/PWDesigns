@@ -7,10 +7,13 @@
     <title>Pasan Wijekoon — Programmer & Designer</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="icon" type="image/x-icon" href="Favicon2.png" />
-    <meta name="description" content="Pasan Wijekoon — Programmer & Designer. Full-stack developer and product designer building beautiful, usable digital products: web, mobile, desktop and IoT." />
+    <meta name="description"
+        content="Pasan Wijekoon — Programmer & Designer. Full-stack developer and product designer building beautiful, usable digital products: web, mobile, desktop and IoT." />
 
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;900&display=swap"
@@ -55,6 +58,23 @@
             animation: floating 6s ease-in-out infinite;
         }
 
+        .hero-animated-word {
+            display: inline-block;
+            transform-origin: 50% 50%;
+            will-change: transform, opacity;
+        }
+
+        #heroSubtitle {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        #heroMicrotag {
+            opacity: 0;
+            transform: translateY(6px);
+            transition: opacity .45s ease, transform .45s ease;
+        }
+
         @keyframes floating {
 
             0%,
@@ -90,10 +110,32 @@
             align-items: center;
             justify-content: center;
             backdrop-filter: blur(10px);
+            padding: 2rem;
         }
 
         .modal.active {
             display: flex;
+        }
+
+        #modalContent {
+            width: 100%;
+            max-width: 900px;
+            max-height: 90vh;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: #000 transparent;
+        }
+
+        #modalContent::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        #modalContent::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        #modalContent::-webkit-scrollbar-thumb {
+            background: #000;
         }
 
         .glass {
@@ -184,6 +226,215 @@
             transform: scale(1.1);
             transition: transform 0.3s ease;
         }
+
+        /* CTA layout and spacing */
+        .hero-cta-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Controls vertical gap between subtitle and CTAs */
+        .hero-cta-wrapper {
+            --cta-gap: 20px;
+            --mouse-gap: 44px;
+        }
+
+        /* .cta-buttons will stack on mobile and sit inline on wider screens */
+        .cta-buttons {
+            margin-top: var(--cta-gap);
+            gap: 12px;
+        }
+
+        /* Primary CTA visuals */
+        .cta-primary {
+            background: white;
+            color: #111827;
+            padding-left: 2.5rem;
+            padding-right: 2.5rem;
+            padding-top: 0.9rem;
+            padding-bottom: 0.9rem;
+            border-radius: 9999px;
+            transition: transform .18s ease, box-shadow .18s ease;
+            transform-origin: 50% 50%;
+        }
+
+        /* Hover/focus */
+        .cta-primary:hover {
+            transform: translateY(-4px);
+        }
+
+        .cta-primary:focus {
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.12);
+        }
+
+        /* Secondary CTA slightly smaller */
+        .cta-secondary {
+            background: rgba(255, 255, 255, 0.02);
+            color: #e6e6e6;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+            padding-top: 0.65rem;
+            padding-bottom: 0.65rem;
+        }
+
+        /* Mouse indicator: positioned below the CTAs */
+        .mouse-indicator {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: calc(100% + var(--mouse-gap));
+            /* increase var(--mouse-gap) to add space */
+            pointer-events: none;
+        }
+
+        /* Responsive adjustments */
+        @media (min-width: 640px) {
+            .cta-buttons {
+                flex-direction: row;
+            }
+
+            /* Slightly reduce mouse gap on large screens if needed */
+            .hero-cta-wrapper {
+                --mouse-gap: 36px;
+            }
+        }
+
+        @media (max-width: 639px) {
+            .cta-buttons {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .hero-cta-wrapper {
+                --mouse-gap: 50px;
+            }
+
+            /* on small screens give slightly more space */
+        }
+
+        .marquee {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            padding: 2rem 0;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(5px);
+        }
+
+        .marquee__inner {
+            display: flex;
+            gap: 2rem;
+            width: fit-content;
+        }
+
+        .marquee__line {
+            flex-shrink: 0;
+            margin: 0;
+            padding: 0 1rem;
+            font-size: 1.125rem;
+            color: #e5e7eb;
+            white-space: nowrap;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 1.5rem;
+        }
+
+        .skill-category h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .skill-category p {
+            color: #e5e7eb;
+            line-height: 1.75;
+        }
+
+        .about-marquee {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .about-marquee__inner {
+            display: flex;
+            width: fit-content;
+        }
+
+        .about-marquee__line {
+            flex-shrink: 0;
+            margin: 0;
+            padding: 1rem 0;
+            font-size: 1.125rem;
+            color: #e5e7eb;
+            white-space: nowrap;
+        }
+
+        .skills-track-container {
+            height: 400px;
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        .skills-track {
+            display: flex;
+            width: fit-content;
+            height: 100%;
+            align-items: center;
+            padding-right: 50vw;
+        }
+
+        @media (max-width: 768px) {
+            .skills-track {
+                padding-right: 100px;
+            }
+        }
+
+        .skill-card {
+            width: 350px;
+            height: 350px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            margin: 0 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .skill-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .skill-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .skill-card p {
+            color: #e5e7eb;
+            line-height: 1.75;
+        }
     </style>
 </head>
 
@@ -200,32 +451,58 @@
         <div class="absolute inset-0 bg-gradient-to-b from-transparent via-gray-950/30 to-gray-950"></div>
 
         <div class="container mx-auto px-6 text-center relative z-10">
-            <div class="hero-text">
-                <h1 class="font-display text-6xl md:text-8xl lg:text-9xl font-black mb-6 tracking-tight">
+            <!-- HERO TEXT REPLACEMENT START -->
+            <div class="hero-text" aria-hidden="false">
+                <!-- Name / headline -->
+                <h1 id="heroName" class="font-display text-6xl md:text-8xl lg:text-9xl font-black mb-4 tracking-tight">
                     Pasan Wijekoon
                 </h1>
-            </div>
-            <div class="hero-subtitle">
-                <p class="text-xl md:text-3xl mb-12 text-gray-300 font-light tracking-wide">
-                    Creating Meaningful Digital Experiences
+
+                <!-- Subtitle (split into word-spans for staggered animation) -->
+                <p id="heroSubtitle" class="text-xl md:text-3xl mb-6 text-gray-300 font-light tracking-wide"
+                    aria-label="Programmer and Product Designer">
+                    <!-- Content will be split into spans by JS for animation; keep the full sentence here for accessibility -->
+                    Programmer • Product Designer — building pixel-perfect UI and robust backend systems for web,
+                    mobile, desktop & IoT.
+                </p>
+
+                <!-- Microtag / small extra line -->
+                <p id="heroMicrotag" class="text-sm md:text-base text-gray-400 mt-2" aria-hidden="true">
+                    Java & JavaScript specialist • UX-minded product developer • API, Firebase & embedded systems
+                    experience
                 </p>
             </div>
+            <!-- HERO TEXT REPLACEMENT END -->
+
 
             <!-- HERO CTA wrapper: button + centered mouse indicator below it -->
+            <!-- HERO CTA (replace previous hero-btn block with this) -->
             <div class="hero-btn">
-                <div class="relative inline-block hero-cta-wrapper">
-                    <button id="exploreBtn"
-                        onclick="document.getElementById('portfolio').scrollIntoView({behavior: 'smooth'})"
-                        class="group relative bg-white text-gray-900 px-10 py-5 rounded-full font-semibold text-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-2xl">
-                        <span class="relative z-10">Explore My Work</span>
-                        <div
-                            class="absolute inset-0 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 opacity-0 group-hover:opacity-20 transition-opacity">
-                        </div>
-                    </button>
+                <div class="relative inline-block hero-cta-wrapper" aria-hidden="false">
+                    <!-- CTA buttons -->
+                    <div class="cta-buttons flex flex-col sm:flex-row items-center gap-4">
+                        <!-- Primary CTA -->
+                        <button id="exploreBtn"
+                            class="cta-primary group relative inline-flex items-center justify-center px-10 py-4 rounded-full font-semibold text-lg shadow-2xl focus:outline-none focus:ring-2 focus:ring-offset-2"
+                            onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth'})"
+                            aria-label="Explore my work">
+                            <span class="relative z-10">Explore My Work</span>
+                            <span
+                                class="absolute inset-0 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 opacity-0 group-hover:opacity-20 transition-opacity"></span>
+                        </button>
 
-                    <!-- mouse indicator positioned below the button; adjust top value or gap to change distance -->
-                    <div class="absolute left-1/2 transform -translate-x-1/2" style="top:100%;">
-                        <div style="margin-top:60px;" class="mt-0 flex justify-center">
+                        <!-- Secondary CTA -->
+                        <a id="downloadCvBtn" href="/Pasan_Wijekoon_CV.pdf" download
+                            class="cta-secondary glass inline-flex items-center justify-center px-8 py-3 rounded-full font-medium text-sm border border-white/20 hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-offset-2"
+                            aria-label="Download resume">
+                            Download CV
+                        </a>
+                    </div>
+
+                    <!-- mouse indicator positioned below the CTAs; change --mouse-gap variable in CSS to control gap -->
+
+                    <div class="mouse-indicator" role="presentation" aria-hidden="true">
+                        <div class="flex justify-center">
                             <div
                                 class="w-8 h-12 border-2 border-white/30 rounded-full flex justify-center pt-2 floating">
                                 <div class="w-1.5 h-2 bg-white/60 rounded-full animate-bounce"></div>
@@ -235,6 +512,15 @@
                 </div>
             </div>
 
+
+        </div>
+        <div class="marquee">
+            <div class="marquee__inner">
+                <p class="marquee__line">I’m a programmer and designer who bridges visual design and engineering — I
+                    design intuitive interfaces and implement them with clean, maintainable code.</p>
+                <p class="marquee__line">I deliver full product cycles from sketches and prototypes to production-ready
+                    apps and APIs.</p>
+            </div>
         </div>
     </section>
 
@@ -478,34 +764,66 @@
         <div class="container mx-auto max-w-5xl">
             <h2 class="font-display text-5xl md:text-7xl font-black text-center mb-8 fade-in">About Me</h2>
             <p class="text-gray-300 text-lg md:text-xl leading-relaxed text-center mb-12 fade-in max-w-3xl mx-auto">
-                I'm Pasan Wijekoon, a designer passionate about creating impactful experiences.
-                With expertise in web design, mobile interfaces, and brand identity, I transform
-                ideas into visually stunning and user-friendly solutions that resonate with audiences.
+                I’m Pasan Wijekoon — a programmer and product designer based in Sri Lanka. I combine software engineering and visual design to craft digital experiences that look great and perform reliably. My work spans web and mobile apps, desktop utilities, and IoT prototypes. I enjoy taking a feature from concept to release: research, wireframes, interactive prototypes, UI polish, testable code, and stable deployments.
             </p>
-            <div class="flex flex-wrap justify-center gap-4 fade-in">
-                <span class="glass px-8 py-4 rounded-full text-lg font-medium border border-purple-500/30">UI/UX
-                    Design</span>
-                <span class="glass px-8 py-4 rounded-full text-lg font-medium border border-purple-500/30">Figma</span>
-                <span class="glass px-8 py-4 rounded-full text-lg font-medium border border-purple-500/30">Adobe
-                    XD</span>
-                <span
-                    class="glass px-8 py-4 rounded-full text-lg font-medium border border-purple-500/30">Branding</span>
-                <span
-                    class="glass px-8 py-4 rounded-full text-lg font-medium border border-purple-500/30">Prototyping</span>
-                <span class="glass px-8 py-4 rounded-full text-lg font-medium border border-purple-500/30">Web
-                    Design</span>
-                <span class="glass px-8 py-4 rounded-full text-lg font-medium border border-purple-500/30">Graphic
-                    Design</span>
-                <span
-                    class="glass px-8 py-4 rounded-full text-lg font-medium border border-purple-500/30">Illustrator</span>
-                <span
-                    class="glass px-8 py-4 rounded-full text-lg font-medium border border-purple-500/30">Photoshop</span>
+            <div class="about-marquee">
+                <div class="about-marquee__inner">
+                    <p class="about-marquee__line">
+                        Cross-disciplinary: design-first thinking with engineering execution. • Strong Java experience (desktop & backend) plus modern web stacks (React, Node, Next.js). • Practical UI/UX skills: prototyping, responsive design, and accessibility awareness. • Experience integrating services: Firebase, REST APIs, payment gateways and embedded devices. • Fast learner and collaborative — comfortable working with product teams and clients.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills-section" class="py-24 bg-gray-950">
+        <div class="container mx-auto">
+            <h2 class="font-display text-5xl md:text-7xl font-black text-center mb-20 fade-in">Skills and Expertise</h2>
+            <div class="skills-track-container">
+                <div class="skills-track">
+                    <div class="skill-card">
+                        <div class="skill-icon"><span class="iconify" data-icon="carbon:code" data-inline="false"></span></div>
+                        <h3>Programming & Languages</h3>
+                        <p>Java, JavaScript, TypeScript, Kotlin, Python, PHP, HTML, CSS, C/C++</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon"><span class="iconify" data-icon="carbon:tool-kit" data-inline="false"></span></div>
+                        <h3>Frameworks & Tools</h3>
+                        <p>React, Next.js, React Native, Node.js, Android SDK, Spring Boot, Hibernate, Firebase, Tailwind CSS</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon"><span class="iconify" data-icon="carbon:cloud-data-ops" data-inline="false"></span></div>
+                        <h3>Databases & Cloud</h3>
+                        <p>MySQL, PostgreSQL, MongoDB, SQLite, Cloudinary, AWS, GCP, DigitalOcean</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon"><span class="iconify" data-icon="carbon:iot-platform" data-inline="false"></span></div>
+                        <h3>IoT & Embedded</h3>
+                        <p>ESP32, Arduino, Raspberry Pi</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon"><span class="iconify" data-icon="carbon:pen-fountain" data-inline="false"></span></div>
+                        <h3>Design & Prototyping</h3>
+                        <p>Figma, Adobe XD, Illustrator, Photoshop, Responsive Design, Wireframing, Interaction Design</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon"><span class="iconify" data-icon="carbon:development" data-inline="false"></span></div>
+                        <h3>Dev Practices</h3>
+                        <p>OOP, MVVM, REST APIs, CI/CD, Unit Testing, Agile, Git</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon"><span class="iconify" data-icon="carbon:user-speaker" data-inline="false"></span></div>
+                        <h3>Soft Skills</h3>
+                        <p>Problem Solving, Collaboration, Communication, Time Management</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section class="py-24 px-6 bg-gray-950">
+    <section class="py-24 px-6 bg-gray-900 border-t border-gray-800">
         <div class="container mx-auto max-w-3xl text-center">
             <h2 class="font-display text-5xl md:text-7xl font-black mb-8 fade-in">Let's Collaborate</h2>
             <p class="text-gray-400 text-lg md:text-xl mb-12 fade-in leading-relaxed">
@@ -561,6 +879,30 @@
     </a>
 
     <script>
+
+        function splitTextIntoWords(el) {
+            if (!el) return [];
+            // keep original text for aria-label / SEO
+            const original = el.textContent.trim();
+            el.setAttribute('data-original', original);
+
+            // split on spaces but keep punctuation attached
+            const words = original.split(' ').filter(Boolean);
+            el.innerHTML = ''; // clear
+
+            const created = words.map((w, i) => {
+                // add a space after each word except last (visually)
+                const span = document.createElement('span');
+                span.className = 'hero-animated-word';
+                span.setAttribute('aria-hidden', 'true');
+                span.textContent = w + (i < words.length - 1 ? ' ' : '');
+                el.appendChild(span);
+                return span;
+            });
+
+            return created;
+        }
+
         // Fade in animations on scroll
         const observerOptions = {
             threshold: 0.1,
@@ -664,17 +1006,91 @@
 
         // Set default active filter on load
         document.addEventListener('DOMContentLoaded', () => {
+
+
             const defaultBtn = document.querySelector('.filter-btn');
             if (defaultBtn) {
                 defaultBtn.classList.remove('bg-white/5');
                 defaultBtn.classList.add('bg-purple-600/20', 'border-purple-500/30');
             }
 
+
+
             // trigger initial filter (show all)
             filterProjects('all');
 
-            // initialize subtle tilt effect on project cards (optional, can remove)
-            initCardTilt();
+                        // initialize subtle tilt effect on project cards (optional, can remove)
+                        initCardTilt();
+            
+                        const nameEl = document.getElementById('heroName');
+            
+                        // Reset visibility (we used 'visibility:hidden' earlier to avoid flash-of-invisible text)
+                        if (nameEl) nameEl.style.visibility = 'visible';
+            
+                        // Create a timeline for a coordinated sequence
+                        const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+            
+                        // Name animation: slight rise + subtle scale + fade
+                        heroTl.from(nameEl, {
+                            duration: 1.0,
+                            y: 48,
+                            opacity: 0,
+                            scale: 0.98,
+                            transformOrigin: '50% 50%',
+                            ease: 'power4.out'
+                        }, 0.1);
+            
+                        // Optional: small bounce on the CTA button when hero TL completes (visual cue)
+                        const cta = document.getElementById('exploreBtn');
+                        if (cta) {
+                            heroTl.fromTo(cta, { scale: 0.995 }, { scale: 1, duration: 0.35, ease: 'elastic.out(1, 0.5)' }, '>-0.05');
+                        }
+            
+                         // Buttons
+                const exploreBtn = document.getElementById('exploreBtn');
+                const downloadCvBtn = document.getElementById('downloadCvBtn');
+            // make sure buttons are hidden initially to avoid FOUC
+            if (exploreBtn) { exploreBtn.style.opacity = 0; exploreBtn.style.transform = 'translateY(8px) scale(.995)'; }
+            if (downloadCvBtn) { downloadCvBtn.style.opacity = 0; downloadCvBtn.style.transform = 'translateY(8px)'; }
+
+            // Wait a short moment so this can be appended after your heroTL (if you created heroTl earlier)
+            // Try to reuse an existing timeline if present; otherwise, create a small one.
+            try {
+                // if heroTl exists as a global, append to it
+                if (window.heroTl && typeof window.heroTl.add === 'function') {
+                    window.heroTl.to([exploreBtn, downloadCvBtn], {
+                        duration: 0.7,
+                        y: 0,
+                        opacity: 1,
+                        scale: 1,
+                        stagger: 0.08,
+                        ease: 'power3.out'
+                    }, '>-0.05');
+
+                    // give primary a small elastic pop at the end
+                    window.heroTl.fromTo(exploreBtn, { scale: 0.985 }, { scale: 1, duration: 0.4, ease: 'elastic.out(1, 0.45)' }, '>-0.02');
+                } else {
+                    // create a short timeline if none exists
+                    const btnTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+                    btnTl.to([exploreBtn, downloadCvBtn], { duration: 0.7, y: 0, opacity: 1, scale: 1, stagger: 0.08 });
+                    btnTl.fromTo(exploreBtn, { scale: 0.985 }, { scale: 1, duration: 0.4, ease: 'elastic.out(1, 0.45)' }, '>-0.02');
+                }
+            } catch (err) {
+                // fallback: simple reveal
+                if (exploreBtn) { gsap.to(exploreBtn, { duration: 0.6, opacity: 1, y: 0 }); }
+                if (downloadCvBtn) { gsap.to(downloadCvBtn, { duration: 0.6, opacity: 1, y: 0, delay: 0.06 }); }
+            }
+
+            // Ensure keyboard "Enter" on explore triggers scroll (for accessibility)
+            if (exploreBtn) {
+                exploreBtn.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            }
+
         });
 
         // 3) Optional: subtle 3D tilt on project cards
@@ -749,8 +1165,41 @@
             { y: 0, opacity: 1, duration: 1, ease: 'power2.out', delay: 1.2, visibility: 'visible' }
         );
 
-    </script>
+        const marqueeInner = document.querySelector('.marquee__inner');
+        const marqueeLines = gsap.utils.toArray('.marquee__line');
 
-</body>
-
-</html>
+                const marqueeTimeline = gsap.timeline({ repeat: -1, ease: 'linear' });
+        
+                marqueeTimeline.fromTo(marqueeInner, 
+                    { xPercent: 0 },
+                    { xPercent: -50, duration: 20, ease: 'linear' }
+                );
+        
+                const aboutMarqueeInner = document.querySelector('.about-marquee__inner');
+                const aboutMarqueeLine = document.querySelector('.about-marquee__line');
+        
+                const aboutMarqueeTimeline = gsap.timeline({ repeat: -1, ease: 'linear' });
+        
+                        aboutMarqueeTimeline.fromTo(aboutMarqueeInner, 
+                            { x: 0 },
+                            { x: -aboutMarqueeLine.clientWidth, duration: 40, ease: 'linear' }
+                        );
+                
+                        gsap.registerPlugin(ScrollTrigger);
+                
+                                const skillsTrack = document.querySelector('.skills-track');
+                                const skillsSection = document.querySelector('#skills-section');
+                                        gsap.to(skillsTrack, {
+                                            x: () => -(skillsTrack.scrollWidth - skillsSection.offsetWidth),
+                                            ease: "none",
+                                            scrollTrigger: {
+                                                trigger: skillsSection,
+                                                start: "center center",
+                                                end: () => "+=" + (skillsTrack.scrollWidth - skillsSection.offsetWidth),
+                                                scrub: true,
+                                                pin: true,
+                                                invalidateOnRefresh: true
+                                            }
+                                        });                    </script>
+                
+                </body></html>
