@@ -229,6 +229,7 @@
             position: relative;
             display: inline-block;
         }
+
         .hero-cta-wrapper {
             --cta-gap: 20px;
             --mouse-gap: 44px;
@@ -421,34 +422,36 @@
             color: #e5e7eb;
             line-height: 1.75;
         }
+
+        .image-grid {
+            column-gap: 0.5rem;
+            column-count: 1;
+        }
+
+        @media (min-width: 640px) {
             .image-grid {
-                column-gap: 0.5rem;
-                column-count: 1;
+                column-count: 2;
             }
-    
-            @media (min-width: 640px) {
-                .image-grid {
-                    column-count: 2;
-                }
+        }
+
+        @media (min-width: 1024px) {
+            .image-grid {
+                column-count: 3;
             }
-    
-            @media (min-width: 1024px) {
-                .image-grid {
-                    column-count: 3;
-                }
-            }
-    
-            .image-grid div {
-                break-inside: avoid;
-                margin-bottom: 0.5rem;
-            }
-    
-            .image-grid img {
-                width: 100%;
-                height: auto;
-                display: block;
-                border-radius: 0.5rem;
-            }    </style>
+        }
+
+        .image-grid div {
+            break-inside: avoid;
+            margin-bottom: 0.5rem;
+        }
+
+        .image-grid img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 0.5rem;
+        }
+    </style>
 </head>
 
 <body class="bg-gray-950 text-white overflow-x-hidden">
@@ -571,20 +574,14 @@
                     onclick="openModal(1)">
                     <div
                         class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-pink-500 via-rose-600 to-orange-500 aspect-[4/3] shadow-xl">
-                        <div class="absolute inset-0 flex items-center justify-center p-8">
-                            <div class="text-center">
-                                <div class="text-7xl mb-4">📱</div>
-                                <h3 class="text-3xl font-bold">Fitness Tracker App</h3>
-                                <p class="text-sm mt-3 opacity-90 font-medium">Mobile App</p>
-                            </div>
-                        </div>
+                        <img src="images/project2.jpg" alt="Event Booking App" class="w-full h-full object-cover">
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500">
                         </div>
                     </div>
                     <div class="mt-6">
-                        <h3 class="text-2xl font-bold mb-2">Fitness Tracker App</h3>
-                        <p class="text-gray-400">Health and wellness mobile application</p>
+                        <h3 class="text-2xl font-bold mb-2">Event Booking App</h3>
+                        <p class="text-gray-400">Android and web-based event management platform</p>
                     </div>
                 </div>
 
@@ -593,20 +590,14 @@
                     onclick="openModal(2)">
                     <div
                         class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-emerald-500 via-teal-600 to-cyan-600 aspect-[4/3] shadow-xl">
-                        <div class="absolute inset-0 flex items-center justify-center p-8">
-                            <div class="text-center">
-                                <div class="text-7xl mb-4">🏢</div>
-                                <h3 class="text-3xl font-bold">Corporate Rebrand</h3>
-                                <p class="text-sm mt-3 opacity-90 font-medium">Branding</p>
-                            </div>
-                        </div>
+                        <img src="images/project4.jpg" alt="Corporate Rebrand" class="w-full h-full object-cover">
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500">
                         </div>
                     </div>
                     <div class="mt-6">
-                        <h3 class="text-2xl font-bold mb-2">Corporate Rebrand</h3>
-                        <p class="text-gray-400">Complete brand identity redesign</p>
+                        <h3 class="text-2xl font-bold mb-2">Auralis Technologies Rebrand</h3>
+                        <p class="text-gray-400">Brand Identity • Visual Design</p>
                     </div>
                 </div>
 
@@ -615,20 +606,14 @@
                     onclick="openModal(3)">
                     <div
                         class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-600 via-purple-600 to-violet-700 aspect-[4/3] shadow-xl">
-                        <div class="absolute inset-0 flex items-center justify-center p-8">
-                            <div class="text-center">
-                                <div class="text-7xl mb-4">💼</div>
-                                <h3 class="text-3xl font-bold">SaaS Dashboard</h3>
-                                <p class="text-sm mt-3 opacity-90 font-medium">Web Design</p>
-                            </div>
-                        </div>
+                        <img src="images/project5.jpg" alt="SaaS Analytics Dashboard" class="w-full h-full object-cover">
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500">
                         </div>
                     </div>
                     <div class="mt-6">
-                        <h3 class="text-2xl font-bold mb-2">SaaS Dashboard</h3>
-                        <p class="text-gray-400">Analytics and data visualization platform</p>
+                        <h3 class="text-2xl font-bold mb-2">Flowboard – SaaS Analytics Dashboard</h3>
+                        <p class="text-gray-400">A fictional B2B startup providing project and finance analytics for small teams.</p>
                     </div>
                 </div>
 
@@ -637,20 +622,15 @@
                     onclick="openModal(4)">
                     <div
                         class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-amber-500 via-orange-600 to-red-600 aspect-[4/3] shadow-xl">
-                        <div class="absolute inset-0 flex items-center justify-center p-8">
-                            <div class="text-center">
-                                <div class="text-7xl mb-4">🍔</div>
-                                <h3 class="text-3xl font-bold">Food Delivery App</h3>
-                                <p class="text-sm mt-3 opacity-90 font-medium">Mobile App</p>
-                            </div>
-                        </div>
+                        <img src="images/project3.jpg" alt="Mental Health Support App"
+                            class="w-full h-full object-cover">
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500">
                         </div>
                     </div>
                     <div class="mt-6">
-                        <h3 class="text-2xl font-bold mb-2">Food Delivery App</h3>
-                        <p class="text-gray-400">Seamless ordering experience</p>
+                        <h3 class="text-2xl font-bold mb-2">Mental Health Support App</h3>
+                        <p class="text-gray-400">Comprehensive mental health resources and support</p>
                     </div>
                 </div>
 
@@ -750,12 +730,20 @@
         <div class="container mx-auto max-w-5xl">
             <h2 class="font-display text-5xl md:text-7xl font-black text-center mb-8 fade-in">About Me</h2>
             <p class="text-gray-300 text-lg md:text-xl leading-relaxed text-center mb-12 fade-in max-w-3xl mx-auto">
-                I’m Pasan Wijekoon — a programmer and product designer based in Sri Lanka. I combine software engineering and visual design to craft digital experiences that look great and perform reliably. My work spans web and mobile apps, desktop utilities, and IoT prototypes. I enjoy taking a feature from concept to release: research, wireframes, interactive prototypes, UI polish, testable code, and stable deployments.
+                I’m Pasan Wijekoon — a programmer and product designer based in Sri Lanka. I combine software
+                engineering and visual design to craft digital experiences that look great and perform reliably. My work
+                spans web and mobile apps, desktop utilities, and IoT prototypes. I enjoy taking a feature from concept
+                to release: research, wireframes, interactive prototypes, UI polish, testable code, and stable
+                deployments.
             </p>
             <div class="about-marquee">
                 <div class="about-marquee__inner">
                     <p class="about-marquee__line">
-                        Cross-disciplinary: design-first thinking with engineering execution. • Strong Java experience (desktop & backend) plus modern web stacks (React, Node, Next.js). • Practical UI/UX skills: prototyping, responsive design, and accessibility awareness. • Experience integrating services: Firebase, REST APIs, payment gateways and embedded devices. • Fast learner and collaborative — comfortable working with product teams and clients.
+                        Cross-disciplinary: design-first thinking with engineering execution. • Strong Java experience
+                        (desktop & backend) plus modern web stacks (React, Node, Next.js). • Practical UI/UX skills:
+                        prototyping, responsive design, and accessibility awareness. • Experience integrating services:
+                        Firebase, REST APIs, payment gateways and embedded devices. • Fast learner and collaborative —
+                        comfortable working with product teams and clients.
                     </p>
                 </div>
             </div>
@@ -769,37 +757,46 @@
             <div class="skills-track-container">
                 <div class="skills-track">
                     <div class="skill-card">
-                        <div class="skill-icon"><span class="iconify" data-icon="carbon:code" data-inline="false"></span></div>
+                        <div class="skill-icon"><span class="iconify" data-icon="carbon:code"
+                                data-inline="false"></span></div>
                         <h3>Programming & Languages</h3>
                         <p>Java, JavaScript, TypeScript, Kotlin, Python, PHP, HTML, CSS, C/C++</p>
                     </div>
                     <div class="skill-card">
-                        <div class="skill-icon"><span class="iconify" data-icon="carbon:tool-kit" data-inline="false"></span></div>
+                        <div class="skill-icon"><span class="iconify" data-icon="carbon:tool-kit"
+                                data-inline="false"></span></div>
                         <h3>Frameworks & Tools</h3>
-                        <p>React, Next.js, React Native, Node.js, Android SDK, Spring Boot, Hibernate, Firebase, Tailwind CSS</p>
+                        <p>React, Next.js, React Native, Node.js, Android SDK, Spring Boot, Hibernate, Firebase,
+                            Tailwind CSS</p>
                     </div>
                     <div class="skill-card">
-                        <div class="skill-icon"><span class="iconify" data-icon="carbon:cloud-data-ops" data-inline="false"></span></div>
+                        <div class="skill-icon"><span class="iconify" data-icon="carbon:cloud-data-ops"
+                                data-inline="false"></span></div>
                         <h3>Databases & Cloud</h3>
                         <p>MySQL, PostgreSQL, MongoDB, SQLite, Cloudinary, AWS, GCP, DigitalOcean</p>
                     </div>
                     <div class="skill-card">
-                        <div class="skill-icon"><span class="iconify" data-icon="carbon:iot-platform" data-inline="false"></span></div>
+                        <div class="skill-icon"><span class="iconify" data-icon="carbon:iot-platform"
+                                data-inline="false"></span></div>
                         <h3>IoT & Embedded</h3>
                         <p>ESP32, Arduino, Raspberry Pi</p>
                     </div>
                     <div class="skill-card">
-                        <div class="skill-icon"><span class="iconify" data-icon="carbon:pen-fountain" data-inline="false"></span></div>
+                        <div class="skill-icon"><span class="iconify" data-icon="carbon:pen-fountain"
+                                data-inline="false"></span></div>
                         <h3>Design & Prototyping</h3>
-                        <p>Figma, Adobe XD, Illustrator, Photoshop, Responsive Design, Wireframing, Interaction Design</p>
+                        <p>Figma, Adobe XD, Illustrator, Photoshop, Responsive Design, Wireframing, Interaction Design
+                        </p>
                     </div>
                     <div class="skill-card">
-                        <div class="skill-icon"><span class="iconify" data-icon="carbon:development" data-inline="false"></span></div>
+                        <div class="skill-icon"><span class="iconify" data-icon="carbon:development"
+                                data-inline="false"></span></div>
                         <h3>Dev Practices</h3>
                         <p>OOP, MVVM, REST APIs, CI/CD, Unit Testing, Agile, Git</p>
                     </div>
                     <div class="skill-card">
-                        <div class="skill-icon"><span class="iconify" data-icon="carbon:user-speaker" data-inline="false"></span></div>
+                        <div class="skill-icon"><span class="iconify" data-icon="carbon:user-speaker"
+                                data-inline="false"></span></div>
                         <h3>Soft Skills</h3>
                         <p>Problem Solving, Collaboration, Communication, Time Management</p>
                     </div>
@@ -912,8 +909,10 @@
             {
                 title: 'E-Commerce Platform',
                 category: 'Web Design',
-                description: 'A modern e-commerce platform featuring intuitive navigation, seamless checkout process, and responsive design across all devices. Built with user experience at its core.',
+                description: 'A modern e-commerce platform featuring intuitive navigation, seamless checkout process, and responsive design across all devices Using Core Java. Built with user experience at its core.',
                 features: ['Responsive Design', 'Shopping Cart', 'Product Filters', 'Wishlist Feature'],
+                toolsUsed: 'Java, Hibernate, MySQL, JavaScript, Photoshop, Notion (for style guide documentation)',
+                projectResult: 'The platform achieved a 30% increase in conversion rates and a 20% boost in average order value within the first three months of launch, thanks to its user-friendly design and efficient checkout process.',
                 images: [
                     'images/project1/1.jpeg',
                     'images/project1/2.jpeg',
@@ -930,47 +929,75 @@
                 ]
             },
             {
-                title: 'Fitness Tracker App',
+                title: 'Event Booking App',
                 category: 'Mobile App',
-                description: 'Health and wellness mobile application that helps users track workouts, nutrition, and progress. Features clean UI and motivating design elements.',
-                features: ['Activity Tracking', 'Nutrition Logger', 'Progress Charts', 'Social Features'],
+                description: 'A comprehensive Android and web-based event management platform featuring clean UI and motivating design elements.',
+                features: ['Event Discovery', 'Ticket Booking', 'User Profiles', 'Admin Dashboard'],
+                toolsUsed: 'Android Studio, Firebase, Google Maps API, PayHere',
+                projectResult: 'The final app provides a seamless event discovery and booking experience, resulting in a 25% increase in user engagement and simplifying event management for organizers.',
                 images: [
-                    'images/project1.jpg',
-                    'images/project1.jpg',
-                    'images/project1.jpg'
+                    'images/project2/1 (1).jpg',
+                    'images/project2/1 (2).jpg',
+                    'images/project2/1 (3).jpg',
+                    'images/project2/1 (4).jpg',
+                    'images/project2/1 (5).jpg',
+                    'images/project2/1 (6).jpg'
                 ]
             },
             {
-                title: 'Corporate Rebrand',
+                title: 'Auralis Technologies — Corporate Rebrand',
                 category: 'Branding',
-                description: 'Complete brand identity redesign for a technology company, including logo, color palette, typography, and brand guidelines.',
-                features: ['Logo Design', 'Brand Guidelines', 'Marketing Materials', 'Digital Assets'],
+                description: 'Auralis Technologies needed a new identity to match their evolution from a niche infrastructure provider to a modern cloud solutions company. I led a full rebrand covering strategy, visual identity, and launch assets focusing on clarity, scalability, and a human-centric tone.',
+                features: ['Logo and visual mark system', 'Brand Guidelines', 'Marketing Materials', 'Digital Assets'],
+                toolsUsed: 'Adobe Illustrator, Adobe Photoshop, Figma, InDesign',
+                projectResult: "The rebranding led to a modern, professional brand identity that better communicates the company's values and has been met with positive feedback from stakeholders and customers.",
                 images: [
-                    'images/project1.jpg',
-                    'images/project1.jpg'
+                    'images/project4/1 (1).png',
+                    'images/project4/1 (2).png',
+                    'images/project4/1 (3).png',
+                    'images/project4/1 (4).png',
+                    'images/project4/1 (5).png'
+
                 ]
             },
             {
-                title: 'SaaS Dashboard',
+                title: 'Flowboard',
                 category: 'Web Design',
-                description: 'Analytics and data visualization platform with comprehensive dashboard views, real-time updates, and customizable widgets.',
-                features: ['Data Visualization', 'Real-time Updates', 'Custom Widgets', 'Export Tools'],
+                description: 'Interactive web dashboard built for analytics and team collaboration focused on clarity, performance, and modern UI.',
+                features: ['Dashboard interface design system', 'Interactive charts and data visualization', 'Responsive web UI (desktop + mobile)', 'Real-time data widgets', 'Theme customization (dark & light modes)'],
+                toolsUsed: 'Figma, React.js, Node.js, Tailwind CSS, Recharts.js, Firebase, GSAP animations',
+                projectResult: 'The dashboard combines a crisp visual design with a flexible code structure — built for scalability and easy iteration. Every component is reusable, responsive, and tested for accessibility and performance.',
                 images: [
-                    'images/project1.jpg',
-                    'images/project1.jpg',
-                    'images/project1.jpg',
-                    'images/project1.jpg'
+                    'images/project5/0.jpg',
+                    'images/project5/1.jpg',
+                    'images/project5/2.jpg',
+                    'images/project5/3.jpg',
+                    'images/project5/4.jpg',
+                    'images/project5/5.jpg',
                 ]
             },
             {
-                title: 'Food Delivery App',
+                title: 'Mental Health Support App',
                 category: 'Mobile App',
-                description: 'Seamless food ordering experience with restaurant browsing, real-time order tracking, and integrated payment system.',
-                features: ['Restaurant Search', 'Order Tracking', 'Payment Integration', 'Reviews System'],
-                images: [
-                    'images/project1.jpg',
-                    'images/project1.jpg',
-                    'images/project1.jpg'
+                description: 'A mental health support application providing users with resources, self-assessment tools, and access to professional help Using Flutter.',
+                features: ['Resource Library', 'Self-assessment Tools', 'Professional Support', 'Community Forum'],
+                toolsUsed: 'Flutter, Dart, Firebase, Figma',
+                projectResult: 'The app offers a safe and supportive space for users, with an intuitive interface that makes it easy to access resources and connect with professionals, contributing to better mental wellness.',
+                images: ['images/project3/1 (12).jpg',
+                    'images/project3/1 (5).jpg',
+                    'images/project3/1 (6).jpg',
+                    'images/project3/1 (1).jpg',
+                    'images/project3/1 (2).jpg',
+                    'images/project3/1 (3).jpg',
+                    'images/project3/1 (4).jpg',
+                    'images/project3/1 (7).jpg',
+                    'images/project3/1 (8).jpg',
+                    'images/project3/1 (9).jpg',
+                    'images/project3/1 (10).jpg',
+                    'images/project3/1 (11).jpg',
+                    'images/project3/1 (13).jpg',
+                    'images/project3/1 (14).jpg',
+                    'images/project3/1 (15).jpg'
                 ]
             },
             {
@@ -978,6 +1005,8 @@
                 category: 'Branding',
                 description: 'Artisan coffee shop branding featuring hand-crafted logo, packaging design, and cohesive visual identity across all touchpoints.',
                 features: ['Logo Design', 'Packaging', 'Signage', 'Menu Design'],
+                toolsUsed: 'Adobe Illustrator, Procreate, Adobe Fonts, Photoshop',
+                projectResult: 'The new brand identity captures the artisanal nature of the coffee, with a warm and inviting visual language that has helped the brand stand out in a competitive market and attract a loyal customer base.',
                 images: [
                     'images/project1.jpg',
                     'images/project1.jpg'
@@ -988,6 +1017,8 @@
                 category: 'Graphic Design',
                 description: 'Bold and captivating poster series for cultural events, combining striking typography with vibrant colors to create memorable visual impact.',
                 features: ['Typography Design', 'Color Theory', 'Print Ready', 'Multiple Formats'],
+                toolsUsed: 'Adobe Illustrator, Adobe Photoshop, Typography & Layout principles',
+                projectResult: 'The poster series successfully generated buzz for the events, with a bold and memorable visual style that captured the energy of the performances and led to sold-out shows.',
                 images: [
                     'images/project1.jpg',
                     'images/project1.jpg',
@@ -999,6 +1030,8 @@
                 category: 'Graphic Design',
                 description: 'Modern editorial design featuring innovative grid systems, balanced typography, and compelling visual hierarchy for premium publications.',
                 features: ['Editorial Layout', 'Grid Systems', 'Typography', 'Image Composition'],
+                toolsUsed: 'Adobe InDesign, Adobe Photoshop, Adobe Stock',
+                projectResult: "The final layout presents the magazine's content in a clean, engaging, and visually appealing way, enhancing the reader's experience and reinforcing the publication's premium quality.",
                 images: [
                     'images/project1.jpg',
                     'images/project1.jpg',
@@ -1011,6 +1044,8 @@
                 category: 'Graphic Design',
                 description: 'Engaging visual content for digital platforms, creating cohesive brand presence across multiple social media channels with scroll-stopping graphics.',
                 features: ['Social Templates', 'Brand Consistency', 'Engagement Focus', 'Multi-platform'],
+                toolsUsed: 'Figma, Canva, Adobe Spark, Hootsuite',
+                projectResult: 'The campaign resulted in a 40% increase in social media engagement and a significant boost in brand visibility, thanks to a series of eye-catching and shareable graphics tailored to each platform.',
                 images: [
                     'images/project1.jpg',
                     'images/project1.jpg'
@@ -1058,36 +1093,36 @@
             // trigger initial filter (show all)
             filterProjects('all');
 
-                        // initialize subtle tilt effect on project cards (optional, can remove)
-                        initCardTilt();
-            
-                        const nameEl = document.getElementById('heroName');
-            
-                        // Reset visibility (we used 'visibility:hidden' earlier to avoid flash-of-invisible text)
-                        if (nameEl) nameEl.style.visibility = 'visible';
-            
-                        // Create a timeline for a coordinated sequence
-                        const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-            
-                        // Name animation: slight rise + subtle scale + fade
-                        heroTl.from(nameEl, {
-                            duration: 1.0,
-                            y: 48,
-                            opacity: 0,
-                            scale: 0.98,
-                            transformOrigin: '50% 50%',
-                            ease: 'power4.out'
-                        }, 0.1);
-            
-                        // Optional: small bounce on the CTA button when hero TL completes (visual cue)
-                        const cta = document.getElementById('exploreBtn');
-                        if (cta) {
-                            heroTl.fromTo(cta, { scale: 0.995 }, { scale: 1, duration: 0.35, ease: 'elastic.out(1, 0.5)' }, '>-0.05');
-                        }
-            
-                         // Buttons
-                const exploreBtn = document.getElementById('exploreBtn');
-                const downloadCvBtn = document.getElementById('downloadCvBtn');
+            // initialize subtle tilt effect on project cards (optional, can remove)
+            initCardTilt();
+
+            const nameEl = document.getElementById('heroName');
+
+            // Reset visibility (we used 'visibility:hidden' earlier to avoid flash-of-invisible text)
+            if (nameEl) nameEl.style.visibility = 'visible';
+
+            // Create a timeline for a coordinated sequence
+            const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+            // Name animation: slight rise + subtle scale + fade
+            heroTl.from(nameEl, {
+                duration: 1.0,
+                y: 48,
+                opacity: 0,
+                scale: 0.98,
+                transformOrigin: '50% 50%',
+                ease: 'power4.out'
+            }, 0.1);
+
+            // Optional: small bounce on the CTA button when hero TL completes (visual cue)
+            const cta = document.getElementById('exploreBtn');
+            if (cta) {
+                heroTl.fromTo(cta, { scale: 0.995 }, { scale: 1, duration: 0.35, ease: 'elastic.out(1, 0.5)' }, '>-0.05');
+            }
+
+            // Buttons
+            const exploreBtn = document.getElementById('exploreBtn');
+            const downloadCvBtn = document.getElementById('downloadCvBtn');
             // make sure buttons are hidden initially to avoid FOUC
             if (exploreBtn) { exploreBtn.style.opacity = 0; exploreBtn.style.transform = 'translateY(8px) scale(.995)'; }
             if (downloadCvBtn) { downloadCvBtn.style.opacity = 0; downloadCvBtn.style.transform = 'translateY(8px)'; }
@@ -1168,6 +1203,21 @@
                 `;
             }
 
+            let toolsSection = '';
+            if (project.toolsUsed) {
+                toolsSection = `
+                <h3 class="text-2xl font-bold mb-4">Tools Used</h3>
+                <p class="text-gray-300 mb-8">${project.toolsUsed}</p>
+                `;
+            }
+
+            let resultSection = '';
+            if (project.projectResult) {
+                resultSection = `
+                <p class="text-gray-400 text-base leading-relaxed mb-8">${project.projectResult}</p>
+                `;
+            }
+
             content.innerHTML = `
             <h2 class="font-display text-4xl md:text-5xl font-black mb-4">${project.title}</h2>
             <p class="text-purple-400 mb-8 text-lg font-medium">${project.category}</p>
@@ -1176,6 +1226,8 @@
             <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
                 ${project.features.map(f => `<li class="flex items-center text-lg"><span class="text-purple-400 mr-3 text-xl">✓</span>${f}</li>`).join('')}
             </ul>
+            ${toolsSection}
+            ${resultSection}
             ${imageGrid}
         `;
 
@@ -1214,38 +1266,40 @@
         const marqueeInner = document.querySelector('.marquee__inner');
         const marqueeLines = gsap.utils.toArray('.marquee__line');
 
-                const marqueeTimeline = gsap.timeline({ repeat: -1, ease: 'linear' });
-        
-                marqueeTimeline.fromTo(marqueeInner, 
-                    { xPercent: 0 },
-                    { xPercent: -50, duration: 20, ease: 'linear' }
-                );
-        
-                const aboutMarqueeInner = document.querySelector('.about-marquee__inner');
-                const aboutMarqueeLine = document.querySelector('.about-marquee__line');
-        
-                const aboutMarqueeTimeline = gsap.timeline({ repeat: -1, ease: 'linear' });
-        
-                        aboutMarqueeTimeline.fromTo(aboutMarqueeInner, 
-                            { x: 0 },
-                            { x: -aboutMarqueeLine.clientWidth, duration: 40, ease: 'linear' }
-                        );
-                
-                        gsap.registerPlugin(ScrollTrigger);
-                
-                                const skillsTrack = document.querySelector('.skills-track');
-                                const skillsSection = document.querySelector('#skills-section');
-                                        gsap.to(skillsTrack, {
-                                            x: () => -(skillsTrack.scrollWidth - skillsSection.offsetWidth),
-                                            ease: "none",
-                                            scrollTrigger: {
-                                                trigger: skillsSection,
-                                                start: "center center",
-                                                end: () => "+=" + (skillsTrack.scrollWidth - skillsSection.offsetWidth),
-                                                scrub: true,
-                                                pin: true,
-                                                invalidateOnRefresh: true
-                                            }
-                                        });                    </script>
-                
-                </body></html>
+        const marqueeTimeline = gsap.timeline({ repeat: -1, ease: 'linear' });
+
+        marqueeTimeline.fromTo(marqueeInner,
+            { xPercent: 0 },
+            { xPercent: -50, duration: 20, ease: 'linear' }
+        );
+
+        const aboutMarqueeInner = document.querySelector('.about-marquee__inner');
+        const aboutMarqueeLine = document.querySelector('.about-marquee__line');
+
+        const aboutMarqueeTimeline = gsap.timeline({ repeat: -1, ease: 'linear' });
+
+        aboutMarqueeTimeline.fromTo(aboutMarqueeInner,
+            { x: 0 },
+            { x: -aboutMarqueeLine.clientWidth, duration: 40, ease: 'linear' }
+        );
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        const skillsTrack = document.querySelector('.skills-track');
+        const skillsSection = document.querySelector('#skills-section');
+        gsap.to(skillsTrack, {
+            x: () => -(skillsTrack.scrollWidth - skillsSection.offsetWidth),
+            ease: "none",
+            scrollTrigger: {
+                trigger: skillsSection,
+                start: "center center",
+                end: () => "+=" + (skillsTrack.scrollWidth - skillsSection.offsetWidth),
+                scrub: true,
+                pin: true,
+                invalidateOnRefresh: true
+            }
+        });                    </script>
+
+</body>
+
+</html>
