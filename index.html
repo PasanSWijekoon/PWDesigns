@@ -47,7 +47,6 @@
             animation: gradient 15s ease infinite;
         }
 
-        /* Start hero elements hidden to avoid flash-of-invisible text */
         .hero-text,
         .hero-subtitle,
         .hero-btn {
@@ -144,7 +143,6 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        /* Smoother card hover (replaced) */
         .card-hover {
             transition: transform 420ms cubic-bezier(.16, .84, .24, 1),
                 box-shadow 420ms cubic-bezier(.16, .84, .24, 1),
@@ -227,25 +225,20 @@
             transition: transform 0.3s ease;
         }
 
-        /* CTA layout and spacing */
         .hero-cta-wrapper {
             position: relative;
             display: inline-block;
         }
-
-        /* Controls vertical gap between subtitle and CTAs */
         .hero-cta-wrapper {
             --cta-gap: 20px;
             --mouse-gap: 44px;
         }
 
-        /* .cta-buttons will stack on mobile and sit inline on wider screens */
         .cta-buttons {
             margin-top: var(--cta-gap);
             gap: 12px;
         }
 
-        /* Primary CTA visuals */
         .cta-primary {
             background: white;
             color: #111827;
@@ -258,7 +251,6 @@
             transform-origin: 50% 50%;
         }
 
-        /* Hover/focus */
         .cta-primary:hover {
             transform: translateY(-4px);
         }
@@ -267,7 +259,6 @@
             box-shadow: 0 10px 30px rgba(99, 102, 241, 0.12);
         }
 
-        /* Secondary CTA slightly smaller */
         .cta-secondary {
             background: rgba(255, 255, 255, 0.02);
             color: #e6e6e6;
@@ -277,23 +268,19 @@
             padding-bottom: 0.65rem;
         }
 
-        /* Mouse indicator: positioned below the CTAs */
         .mouse-indicator {
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
             top: calc(100% + var(--mouse-gap));
-            /* increase var(--mouse-gap) to add space */
             pointer-events: none;
         }
 
-        /* Responsive adjustments */
         @media (min-width: 640px) {
             .cta-buttons {
                 flex-direction: row;
             }
 
-            /* Slightly reduce mouse gap on large screens if needed */
             .hero-cta-wrapper {
                 --mouse-gap: 36px;
             }
@@ -309,7 +296,6 @@
                 --mouse-gap: 50px;
             }
 
-            /* on small screens give slightly more space */
         }
 
         .marquee {
@@ -435,7 +421,34 @@
             color: #e5e7eb;
             line-height: 1.75;
         }
-    </style>
+            .image-grid {
+                column-gap: 0.5rem;
+                column-count: 1;
+            }
+    
+            @media (min-width: 640px) {
+                .image-grid {
+                    column-count: 2;
+                }
+            }
+    
+            @media (min-width: 1024px) {
+                .image-grid {
+                    column-count: 3;
+                }
+            }
+    
+            .image-grid div {
+                break-inside: avoid;
+                margin-bottom: 0.5rem;
+            }
+    
+            .image-grid img {
+                width: 100%;
+                height: auto;
+                display: block;
+                border-radius: 0.5rem;
+            }    </style>
 </head>
 
 <body class="bg-gray-950 text-white overflow-x-hidden">
@@ -451,37 +464,24 @@
         <div class="absolute inset-0 bg-gradient-to-b from-transparent via-gray-950/30 to-gray-950"></div>
 
         <div class="container mx-auto px-6 text-center relative z-10">
-            <!-- HERO TEXT REPLACEMENT START -->
             <div class="hero-text" aria-hidden="false">
-                <!-- Name / headline -->
                 <h1 id="heroName" class="font-display text-6xl md:text-8xl lg:text-9xl font-black mb-4 tracking-tight">
                     Pasan Wijekoon
                 </h1>
-
-                <!-- Subtitle (split into word-spans for staggered animation) -->
                 <p id="heroSubtitle" class="text-xl md:text-3xl mb-6 text-gray-300 font-light tracking-wide"
                     aria-label="Programmer and Product Designer">
-                    <!-- Content will be split into spans by JS for animation; keep the full sentence here for accessibility -->
                     Programmer • Product Designer — building pixel-perfect UI and robust backend systems for web,
                     mobile, desktop & IoT.
                 </p>
-
-                <!-- Microtag / small extra line -->
                 <p id="heroMicrotag" class="text-sm md:text-base text-gray-400 mt-2" aria-hidden="true">
                     Java & JavaScript specialist • UX-minded product developer • API, Firebase & embedded systems
                     experience
                 </p>
             </div>
-            <!-- HERO TEXT REPLACEMENT END -->
 
-
-            <!-- HERO CTA wrapper: button + centered mouse indicator below it -->
-            <!-- HERO CTA (replace previous hero-btn block with this) -->
             <div class="hero-btn">
                 <div class="relative inline-block hero-cta-wrapper" aria-hidden="false">
-                    <!-- CTA buttons -->
                     <div class="cta-buttons flex flex-col sm:flex-row items-center gap-4">
-                        <!-- Primary CTA -->
                         <button id="exploreBtn"
                             class="cta-primary group relative inline-flex items-center justify-center px-10 py-4 rounded-full font-semibold text-lg shadow-2xl focus:outline-none focus:ring-2 focus:ring-offset-2"
                             onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth'})"
@@ -490,17 +490,12 @@
                             <span
                                 class="absolute inset-0 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 opacity-0 group-hover:opacity-20 transition-opacity"></span>
                         </button>
-
-                        <!-- Secondary CTA -->
                         <a id="downloadCvBtn" href="#" download
                             class="cta-secondary glass inline-flex items-center justify-center px-8 py-3 rounded-full font-medium text-sm border border-white/20 hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-offset-2"
                             aria-label="Download resume">
                             Download CV
                         </a>
                     </div>
-
-                    <!-- mouse indicator positioned below the CTAs; change --mouse-gap variable in CSS to control gap -->
-
                     <div class="mouse-indicator" role="presentation" aria-hidden="true">
                         <div class="flex justify-center">
                             <div
@@ -557,19 +552,10 @@
                     onclick="openModal(0)">
                     <div
                         class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-purple-600 via-purple-700 to-blue-600 aspect-[4/3] shadow-xl">
-                        <div class="absolute inset-0 flex items-center justify-center p-8">
-                            <div class="text-center">
-                                <div class="text-7xl mb-4">🎨</div>
-                                <h3 class="text-3xl font-bold">E-Commerce Platform</h3>
-                                <p class="text-sm mt-3 opacity-90 font-medium">Web Design</p>
-                            </div>
-                        </div>
-                        <!-- overlay (Tailwind utility classes) -->
+                        <img src="images/project1.jpg" alt="E-Commerce Platform" class="w-full h-full object-cover">
                         <div
                             class="absolute inset-0 rounded-3xl pointer-events-none opacity-0 translate-y-1.5 transition-all duration-360 ease-[cubic-bezier(.2,.9,.2,1)] bg-gradient-to-b from-black/45 to-black/15 group-hover:opacity-100 group-hover:translate-y-0">
                         </div>
-
-                        <!-- small gradient highlight -->
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500">
                         </div>
@@ -927,55 +913,108 @@
                 title: 'E-Commerce Platform',
                 category: 'Web Design',
                 description: 'A modern e-commerce platform featuring intuitive navigation, seamless checkout process, and responsive design across all devices. Built with user experience at its core.',
-                features: ['Responsive Design', 'Shopping Cart', 'Product Filters', 'Wishlist Feature']
+                features: ['Responsive Design', 'Shopping Cart', 'Product Filters', 'Wishlist Feature'],
+                images: [
+                    'images/project1/1.jpeg',
+                    'images/project1/2.jpeg',
+                    'images/project1/3.jpeg',
+                    'images/project1/4.jpeg',
+                    'images/project1/5.jpeg',
+                    'images/project1/6.jpeg',
+                    'images/project1/7.jpeg',
+                    'images/project1/8.jpeg',
+                    'images/project1/9.jpeg',
+                    'images/project1/10.jpeg',
+                    'images/project1/11.jpeg',
+                    'images/project1/12.jpeg'
+                ]
             },
             {
                 title: 'Fitness Tracker App',
                 category: 'Mobile App',
                 description: 'Health and wellness mobile application that helps users track workouts, nutrition, and progress. Features clean UI and motivating design elements.',
-                features: ['Activity Tracking', 'Nutrition Logger', 'Progress Charts', 'Social Features']
+                features: ['Activity Tracking', 'Nutrition Logger', 'Progress Charts', 'Social Features'],
+                images: [
+                    'images/project1.jpg',
+                    'images/project1.jpg',
+                    'images/project1.jpg'
+                ]
             },
             {
                 title: 'Corporate Rebrand',
                 category: 'Branding',
                 description: 'Complete brand identity redesign for a technology company, including logo, color palette, typography, and brand guidelines.',
-                features: ['Logo Design', 'Brand Guidelines', 'Marketing Materials', 'Digital Assets']
+                features: ['Logo Design', 'Brand Guidelines', 'Marketing Materials', 'Digital Assets'],
+                images: [
+                    'images/project1.jpg',
+                    'images/project1.jpg'
+                ]
             },
             {
                 title: 'SaaS Dashboard',
                 category: 'Web Design',
                 description: 'Analytics and data visualization platform with comprehensive dashboard views, real-time updates, and customizable widgets.',
-                features: ['Data Visualization', 'Real-time Updates', 'Custom Widgets', 'Export Tools']
+                features: ['Data Visualization', 'Real-time Updates', 'Custom Widgets', 'Export Tools'],
+                images: [
+                    'images/project1.jpg',
+                    'images/project1.jpg',
+                    'images/project1.jpg',
+                    'images/project1.jpg'
+                ]
             },
             {
                 title: 'Food Delivery App',
                 category: 'Mobile App',
                 description: 'Seamless food ordering experience with restaurant browsing, real-time order tracking, and integrated payment system.',
-                features: ['Restaurant Search', 'Order Tracking', 'Payment Integration', 'Reviews System']
+                features: ['Restaurant Search', 'Order Tracking', 'Payment Integration', 'Reviews System'],
+                images: [
+                    'images/project1.jpg',
+                    'images/project1.jpg',
+                    'images/project1.jpg'
+                ]
             },
             {
                 title: 'Coffee Brand Identity',
                 category: 'Branding',
                 description: 'Artisan coffee shop branding featuring hand-crafted logo, packaging design, and cohesive visual identity across all touchpoints.',
-                features: ['Logo Design', 'Packaging', 'Signage', 'Menu Design']
+                features: ['Logo Design', 'Packaging', 'Signage', 'Menu Design'],
+                images: [
+                    'images/project1.jpg',
+                    'images/project1.jpg'
+                ]
             },
             {
                 title: 'Event Poster Series',
                 category: 'Graphic Design',
                 description: 'Bold and captivating poster series for cultural events, combining striking typography with vibrant colors to create memorable visual impact.',
-                features: ['Typography Design', 'Color Theory', 'Print Ready', 'Multiple Formats']
+                features: ['Typography Design', 'Color Theory', 'Print Ready', 'Multiple Formats'],
+                images: [
+                    'images/project1.jpg',
+                    'images/project1.jpg',
+                    'images/project1.jpg'
+                ]
             },
             {
                 title: 'Magazine Layout Design',
                 category: 'Graphic Design',
                 description: 'Modern editorial design featuring innovative grid systems, balanced typography, and compelling visual hierarchy for premium publications.',
-                features: ['Editorial Layout', 'Grid Systems', 'Typography', 'Image Composition']
+                features: ['Editorial Layout', 'Grid Systems', 'Typography', 'Image Composition'],
+                images: [
+                    'images/project1.jpg',
+                    'images/project1.jpg',
+                    'images/project1.jpg',
+                    'images/project1.jpg'
+                ]
             },
             {
                 title: 'Social Media Campaign',
                 category: 'Graphic Design',
                 description: 'Engaging visual content for digital platforms, creating cohesive brand presence across multiple social media channels with scroll-stopping graphics.',
-                features: ['Social Templates', 'Brand Consistency', 'Engagement Focus', 'Multi-platform']
+                features: ['Social Templates', 'Brand Consistency', 'Engagement Focus', 'Multi-platform'],
+                images: [
+                    'images/project1.jpg',
+                    'images/project1.jpg'
+                ]
             }
         ];
 
@@ -1120,6 +1159,15 @@
             const modal = document.getElementById('modal');
             const content = document.getElementById('modalContent');
 
+            let imageGrid = '';
+            if (project.images && project.images.length > 0) {
+                imageGrid = `
+                <div class="image-grid mt-8">
+                    ${project.images.map(img => `<div><img src="${img}" alt="${project.title}"></div>`).join('')}
+                </div>
+                `;
+            }
+
             content.innerHTML = `
             <h2 class="font-display text-4xl md:text-5xl font-black mb-4">${project.title}</h2>
             <p class="text-purple-400 mb-8 text-lg font-medium">${project.category}</p>
@@ -1128,9 +1176,7 @@
             <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
                 ${project.features.map(f => `<li class="flex items-center text-lg"><span class="text-purple-400 mr-3 text-xl">✓</span>${f}</li>`).join('')}
             </ul>
-            <div class="bg-gradient-to-br from-purple-600 to-blue-600 rounded-2xl aspect-video flex items-center justify-center text-8xl shadow-2xl">
-                ${['🎨', '📱', '🏢', '💼', '🍔', '☕', '🎭', '📚', '🎨'][index] || '🎨'}
-            </div>
+            ${imageGrid}
         `;
 
             modal.classList.add('active');
